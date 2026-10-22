@@ -1,322 +1,171 @@
-# 📦 Inventory Management System using Microsoft Excel
+# Inventory Management System | Excel-Based ERP
 
-An **ERP-inspired Inventory Management System** developed entirely in **Microsoft Excel** to automate inventory tracking, purchase and sales management, profit calculation, and business reporting.
+An inventory management workbook built in **Microsoft Excel** to bring purchases, sales, stock tracking, and business reporting into one place.
 
-The project was developed between **February 2025 and March 2025** as a practical implementation of inventory management concepts using advanced Excel features. It demonstrates how Excel can be used as a lightweight ERP solution for small and medium-sized businesses.
+**Author:** [Nihaal Sahay](https://github.com/NihaalSahay07)  
+**Project period:** February–March 2025  
+**Tools:** Microsoft Excel, Excel Tables, formulas, PivotTables, PivotCharts, and data validation
 
----
+## About the project
 
-## 📌 Project Overview
+Keeping track of stock becomes difficult when purchase records, sales records, and product information are maintained separately. Even a small mistake in one sheet can lead to incorrect stock figures or time-consuming manual checks.
 
-This project was built to solve common inventory management challenges faced by small businesses, such as:
+I built this project to explore how the core ideas behind an Enterprise Resource Planning (ERP) system could work inside Excel. Instead of updating inventory and reports by hand after each transaction, the workbook connects the underlying records so that the relevant calculations and summaries can update from the data entered.
 
-- Manual stock tracking
-- Duplicate data entry
-- Inventory mismatches
-- Delayed reporting
-- Lack of integration between purchases, sales, and inventory
+It is an **ERP-inspired Excel solution**, not a replacement for a full ERP platform. The focus is on making everyday inventory operations easier to follow and manage, especially in a small-business setting.
 
-To address these challenges, I designed an interconnected Excel workbook where a single transaction automatically updates inventory, reports, profit, and dashboard KPIs—similar to the workflow of an ERP (Enterprise Resource Planning) system.
+## What the workbook does
 
----
+- **Tracks purchases and sales:** Records incoming and outgoing stock in separate transaction sheets.
+- **Calculates stock levels:** Uses transaction data to work out the quantity currently available for each product.
+- **Keeps reference data organized:** Maintains product, customer, and vendor details in dedicated sheets.
+- **Summarizes business activity:** Brings together sales, purchases, estimated profit, inventory value, and product performance in a dashboard.
+- **Flags low stock:** Uses conditional formatting to highlight items that may need reordering.
+- **Makes data entry easier:** Uses dropdowns and quick-entry navigation to reduce repetitive work.
 
-# 🎯 Objectives
+## Workbook structure
 
-- Automate inventory management
-- Reduce manual calculations
-- Improve inventory accuracy
-- Generate real-time business reports
-- Mimic the workflow of an ERP system using Microsoft Excel
+The system is organized into eight connected modules:
 
----
+| Module | Purpose |
+| --- | --- |
+| **Dashboard** | Presents sales, purchase, profit, stock, and customer summaries. |
+| **Product Master** | Stores product names, HSN codes, categories, cost prices, and selling prices. |
+| **Customer Database** | Maintains customer names, contact details, and locations. |
+| **Vendor Database** | Maintains supplier details, locations, and product mappings. |
+| **Purchase Module** | Records stock received from suppliers. |
+| **Sales Module** | Records sales and the quantities sold. |
+| **Inventory Module** | Calculates available stock from purchase and sales records. |
+| **New Entry Module** | Provides shortcuts for adding purchases and sales. |
 
-# 📊 Project Statistics
+### How the parts work together
 
-| Metric | Value |
-|---------|------:|
-| Inventory Managed | ₹29.84 Lakhs |
-| Total Transactions | ₹85+ Lakhs |
-| Purchase Value | ₹55.4 Lakhs |
-| Sales Value | ₹30.7 Lakhs |
-| Profit Generated | ₹5.11 Lakhs |
-| Product Categories | 10 |
-| Active Customers | 7 |
-| Inventory Accuracy | 99.8% |
-
----
-
-# 🏗️ System Modules
-
-The workbook consists of **8 interconnected modules**.
-
-### 📋 Dashboard
-Displays real-time business insights:
-
-- Total Sales
-- Total Purchases
-- Profit
-- Inventory Value
-- Top Customers
-- Top Selling Products
-- Stock Alerts
-
----
-
-### 📦 Product Master
-
-Stores:
-
-- HSN Code
-- Product Name
-- Category
-- Cost Price
-- Selling Price
-
-Acts as the master database for all inventory transactions.
-
----
-
-### 👥 Customer Database
-
-Maintains customer information including:
-
-- Customer Name
-- Contact Number
-- Location
-
----
-
-### 🚚 Vendor Database
-
-Maintains vendor information including:
-
-- Vendor Name
-- Contact Details
-- Product Mapping
-- Location
-
----
-
-### 🛒 Purchase Module
-
-Records purchase transactions.
-
-Automatically updates inventory whenever new stock is purchased.
-
----
-
-### 💰 Sales Module
-
-Records customer sales.
-
-Automatically deducts inventory and updates sales reports.
-
----
-
-### 📦 Inventory Module
-
-Calculates current inventory dynamically using purchase and sales transactions.
-
-Current Stock = Total Purchases − Total Sales
-
----
-
-### ➕ New Entry Module
-
-Provides quick navigation buttons for:
-
-- New Purchase Entry
-- New Sales Entry
-
-This reduces manual navigation and improves efficiency.
-
----
-
-# ⚙️ Excel Features Used
-
-| Feature | Purpose |
-|----------|----------|
-| Excel Tables | Structured and expandable data management |
-| SUMIFS | Dynamic inventory calculation |
-| VLOOKUP | Fetch product details automatically |
-| INDEX-MATCH | Customer and vendor lookup |
-| Data Validation | Dropdown lists and error prevention |
-| IFERROR | Handle lookup errors gracefully |
-| Pivot Tables | Business reporting and analysis |
-| Pivot Charts | Interactive dashboard visualization |
-| Conditional Formatting | Low stock alerts |
-
----
-
-# 📈 Inventory Calculation
-
-Current inventory is calculated automatically using purchase and sales data.
-
-### Formula
-
-```excel
-=SUMIF(Purchase[HSN_Code],[@HSN_Code],Purchase[Units])
--
-SUMIF(Sales[HSN_Code],[@HSN_Code],Sales[Units])
+```text
+                 Product Master
+                       |
+          +------------+------------+
+          |                         |
+     Purchase Records          Sales Records
+          |                         |
+          +------------+------------+
+                       |
+               Stock Calculation
+                       |
+               Dashboard & Reports
 ```
 
----
+For example, when a purchase is added, the purchased quantity contributes to the stock calculation. When a sale is recorded, the sold quantity is subtracted. The dashboard can then use those records to display the latest calculated totals.
 
-### Inventory Value
+## Project figures
+
+The original project documentation reports the following figures:
+
+| Metric | Reported value |
+| --- | ---: |
+| Inventory managed | ₹29.84 lakh |
+| Transaction value | ₹85+ lakh |
+| Purchases | ₹55.4 lakh |
+| Sales | ₹30.7 lakh |
+| Profit | ₹5.11 lakh |
+| Product categories | 10 |
+| Active customers | 7 |
+| Inventory accuracy | 99.8% |
+
+These are **project-reported figures**, not independently audited results. They describe the workbook's documented dataset and outcomes.
+
+## How inventory is calculated
+
+The main stock calculation follows a simple rule:
+
+**Available stock = Total units purchased − Total units sold**
+
+An example Excel formula using structured table references is:
+
+```excel
+=SUMIF(Purchase[HSN_Code],[@HSN_Code],Purchase[Units])-SUMIF(Sales[HSN_Code],[@HSN_Code],Sales[Units])
+```
+
+The formula matches records using each product's HSN code, adds the purchased units, and subtracts the sold units.
+
+Inventory value can then be calculated using the available quantity and the stored unit cost:
 
 ```excel
 =[@Stock]*[@Cost]
 ```
 
----
+The project documentation also discusses FIFO, weighted average cost, and market-value approaches to inventory valuation. Those approaches require their own costing rules; the simple formula above illustrates stock quantities and a basic cost-based valuation, rather than implementing all three methods.
 
-# 📊 Dashboard KPIs
+## Excel features used
 
-The dashboard displays:
+| Excel feature | How it is used |
+| --- | --- |
+| Excel Tables | Keeps transaction and master data structured and expandable. |
+| `SUMIF` / `SUMIFS` | Aggregates purchases, sales, and stock-related figures. |
+| `VLOOKUP` | Retrieves product information from reference tables. |
+| `INDEX` + `MATCH` | Supports lookups across customer and vendor records. |
+| Data Validation | Creates dropdown options and helps limit invalid entries. |
+| `IFERROR` | Handles lookup failures more clearly. |
+| PivotTables | Groups and summarizes business data. |
+| PivotCharts | Visualizes trends and comparisons on the dashboard. |
+| Conditional Formatting | Highlights stock levels and exceptions requiring attention. |
 
-- 📈 Total Sales
-- 📉 Total Purchases
-- 💰 Profit
-- 📦 Inventory Value
-- 👥 Active Customers
-- 🛍️ Product Count
-- ⭐ Top Selling Products
-- 🏆 Top Customers
-- 📊 Stock Level Analysis
+## Dashboard and reporting
 
-All KPIs update automatically whenever a purchase or sale is recorded.
+The dashboard is intended to provide a quick picture of the business without having to inspect every transaction sheet. It brings together:
 
----
+- Sales, purchases, and profit
+- Total inventory value and product count
+- Active customers and top customers
+- Best-selling products
+- Stock-level analysis and reorder alerts
 
-# 📦 Inventory Valuation Methods
+One useful example is a low-stock warning: when a product falls below its reorder threshold, the workbook can flag it so that the item is easier to spot during review.
 
-The project supports multiple inventory valuation techniques.
+## What I learned
 
-- FIFO (First-In First-Out)
-- Weighted Average Cost
-- Market Value Method
+This project helped me connect inventory management concepts with a practical spreadsheet workflow. The most valuable part was designing the relationship between different sheets: an entry in one part of the workbook should flow through to the stock calculations and business summaries without requiring the same information to be entered repeatedly.
 
-These methods help maintain accurate inventory valuation depending on business requirements.
+It also gave me hands-on experience with structured data, lookup and aggregation formulas, dashboard design, basic reporting, and the importance of keeping business records consistent.
 
----
+The original project documentation reports a **75% reduction in manual work** and **99.8% inventory accuracy**. Those are reported outcomes rather than measurements independently validated in this README.
 
-# 🔔 Smart Stock Alerts
+## Getting started
 
-Automatic stock alerts notify users whenever inventory falls below the reorder level.
+1. Download or clone this repository.
+2. Open [`INVENTORY MANAGEMENT IN EXCEL.xlsx`](./INVENTORY%20MANAGEMENT%20IN%20EXCEL.xlsx) in Microsoft Excel.
+3. Explore the **Product Master**, **Customer Database**, and **Vendor Database** to understand the reference data.
+4. Review the **Purchase** and **Sales** sheets to see how transactions are recorded.
+5. Open the **Inventory** and **Dashboard** sheets to explore the calculated results and reports.
 
-Example:
+> **Tip:** Work on a copy of the workbook if you want to experiment with the data. Depending on the Excel version and workbook settings, you may need to refresh PivotTables or related reports after changing transaction records.
 
-```
-⚠ Smart Watch Needs Reordering!
-```
+## Possible improvements
 
-This helps businesses prevent stockouts and improve inventory planning.
+There are several directions in which I would like to extend this project:
 
----
+- Barcode-based product entry
+- More streamlined data entry with VBA
+- Automated email reports
+- Support for stock across multiple warehouses
+- A database backend, such as SQL, for larger datasets
+- Power BI reporting
+- Cloud access and integration with dedicated ERP systems
 
-# 💼 Business Impact
+These are ideas for future development, not features claimed to be available in the current workbook.
 
-The system successfully:
+## Repository contents
 
-- ✅ Reduced manual work by **75%**
-- ✅ Improved inventory accuracy to **99.8%**
-- ✅ Automated inventory tracking
-- ✅ Reduced data entry errors using dropdown validation
-- ✅ Generated real-time reports and dashboards
-- ✅ Identified slow-moving inventory
-- ✅ Improved business decision-making
-- ✅ Simplified day-to-day inventory operations
-
----
-
-# 🧠 ERP Concept
-
-This project was inspired by the workflow of an **Enterprise Resource Planning (ERP)** system.
-
-Although developed in Microsoft Excel, it follows the same basic principle of ERP software:
-
-- A single transaction updates multiple business functions automatically.
-- Purchase entries update inventory.
-- Sales entries reduce stock.
-- Dashboard KPIs refresh automatically.
-- Reports are generated in real time.
-
-This provides an integrated workflow similar to enterprise software such as SAP.
-
----
-
-# 📈 Workflow
-
-```
-                Product Master
-                       │
-        ┌──────────────┼──────────────┐
-        │                             │
-  Purchase Module              Sales Module
-        │                             │
-        └──────────────┼──────────────┘
-                       │
-              Inventory Calculation
-                       │
-                Dashboard & Reports
+```text
+ERP-Principle-System/
+├── INVENTORY MANAGEMENT IN EXCEL.xlsx
+└── README.md
 ```
 
----
+## Author
 
-# 🚀 Future Enhancements
-
-- Barcode Scanner Integration
-- VBA Automation
-- Automatic Email Reports
-- Multi-Warehouse Support
-- SQL Database Integration
-- Power BI Dashboard
-- SAP ERP Integration
-- Cloud-Based Inventory Management
+**Nihaal Sahay**  
+GitHub: [@NihaalSahay07](https://github.com/NihaalSahay07)
 
 ---
 
-# 📚 Key Learnings
-
-Through this project, I gained practical knowledge of:
-
-- Inventory Management
-- ERP Workflow
-- Business Process Automation
-- Dashboard Development
-- Data Analysis
-- Business Reporting
-- Excel Automation
-- Supply Chain Operations
-
----
-
-# 🛠️ Technologies Used
-
-- Microsoft Excel
-- Excel Tables
-- SUMIFS
-- VLOOKUP
-- INDEX-MATCH
-- Pivot Tables
-- Pivot Charts
-- Conditional Formatting
-- Data Validation
-- IFERROR
-
-
----
-
-# 👨‍💻 Author
-
-**Harsh Vardhan Pandey**
-
-B.Tech Mechanical Engineering
-
-National Institute of Technology (NIT) Jamshedpur
-
----
-
-## ⭐ Project Summary
-
-This project demonstrates how **Microsoft Excel** can be transformed into an **ERP-inspired Inventory Management System** by integrating purchases, sales, inventory, customers, vendors, and reporting into a single automated workbook. Using advanced Excel features such as **SUMIFS, VLOOKUP, INDEX-MATCH, Pivot Tables, Data Validation, and Conditional Formatting**, the system provides real-time inventory tracking, business insights, and decision support while reducing manual effort and improving operational efficiency.
+*Built as a hands-on exploration of how ERP principles and inventory reporting can be applied using Microsoft Excel.*
